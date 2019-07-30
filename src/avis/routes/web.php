@@ -12,8 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    echo "asdfasdf";
+    return view('index');
 });
+
 Route::get('/index', function (){
-  return view('welcome')
+  return view('welcome');
 });
