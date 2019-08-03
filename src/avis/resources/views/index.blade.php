@@ -5,9 +5,9 @@
     <title></title>
   </head>
   <body>
-    <form  action="index.html" method="post">
-      <label for="start_date">Start Date</label>
-      <input type="date" name="start_date" min="<?php echo date('m-d-y'); ?>" value="<?php echo date('d/m/y'); ?>">
+    <form  action="factorial.php" method="post">
+        <input type="number" name="value">
+        <input type="submit" name="" value="submit">
     </form>
   </body>
 </html>
