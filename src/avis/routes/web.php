@@ -12,10 +12,6 @@
 */
 
 Route::get('/', function () {
-    echo "asdfasdf";
     return view('index');
 });
-
-Route::get('/index', function (){
-  return view('welcome');
-});
+Route::get('/reservation', ['as' => 'new.reservation', 'uses' => 'ReservationController@index']);
