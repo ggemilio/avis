@@ -15,7 +15,13 @@ class ReservationController extends Controller
 
     public function extras()
     {
-      $categories = \App\Establishment::find(_POST['establishment-pickup'])->categories;
-      return view('reservationExtras')->withCategories($categories);
+      $extras = \App\Extra::all();
+      $categories = \App\Establishment::find($_POST['establishment-pickup'])->categories;
+      return view('reservationExtras')->withCategories($categories)->withExtras($extras);
+    }
+
+    public function checkout()
+    {
+      
     }
 }

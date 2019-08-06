@@ -5,6 +5,20 @@
     <title></title>
   </head>
   <body>
-    
+    <form class="" action="{{route('reservation.checkout')}}" method="post">
+      {{crsf_field}}
+      <select name="category">
+        @foreach($categories as $category)
+        <option value="{{$category->id}}">{{$category->category_name}}</option></p>
+        @endforeach
+      </select>
+      <br><br>
+      @foreach($extras as $extra)
+      <label>{{$extra->name}} - {{$extra->price}}</label>
+      <input type="checkbox" name="{{$extra->id}}">
+      <br><br>
+      @endforeach
+      <input type="submit" value="Procced to checkout">
+    </form>
   </body>
 </html>

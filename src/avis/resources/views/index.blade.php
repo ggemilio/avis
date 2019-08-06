@@ -13,7 +13,7 @@
       <input type="date" name="finish-date">
       <br><br>
       <label for="">Pickup location</label>
-      <select class="" name="establishent-pickup">
+      <select class="" name="establishment-pickup">
         @foreach($establishments as $establishment)
         <option value="{{$establishment -> id}}">{{$establishment-> establishment_name}}</option>
         @endforeach

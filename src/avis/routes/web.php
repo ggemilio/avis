@@ -13,3 +13,4 @@
 
 Route::get('/', ['as' => 'new.reservation', 'uses' => 'ReservationController@index']);
 Route::post('/resDetails', ['as' => 'reservation.extras', 'uses' => 'ReservationController@extras']);
+Route::post('/checkou', ['as' => 'reservation.checkout', 'uses' => 'ReservationController@checkout']);
