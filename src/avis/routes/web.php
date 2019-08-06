@@ -11,7 +11,5 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/reservation', ['as' => 'new.reservation', 'uses' => 'ReservationController@index']);
+Route::get('/', ['as' => 'new.reservation', 'uses' => 'ReservationController@index']);
+Route::post('/resDetails', ['as' => 'reservation.extras', 'uses' => 'ReservationController@extras']);

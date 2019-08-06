@@ -5,16 +5,27 @@
     <title></title>
   </head>
   <body>
-    <form  action="{{route('new.reservation')}}" method="get">
+    <form  action="{{route('reservation.extras')}}" method="post">
+      {{csrf_field()}}
       <label for="">Start Date</label>
       <input type="date" name="start-date">
       <label for="">Finish Date</label>
       <input type="date" name="finish-date">
-      <select class="" name="establishent">
-        <option value="aeropuerto-GDL">Aeropuerto Internacional de GDL</option>
-        <option value="aeropuerto-CDMX">Aeropuerto Internacional de CDMX</option>
-        <option value=""></option>
+      <br><br>
+      <label for="">Pickup location</label>
+      <select class="" name="establishent-pickup">
+        @foreach($establishments as $establishment)
+        <option value="{{$establishment -> id}}">{{$establishment-> establishment_name}}</option>
+        @endforeach
       </select>
+      <br><br>
+      <label for="">Drop off location</label>
+      <select class="" name="establishment-dropoff">
+        @foreach($establishments as $establishment)
+        <option value="{{$establishment -> id}}">{{$establishment-> establishment_name}}</option>
+        @endforeach
+      </select>
+      <br><br>
       <input type="submit" name="" value="submit">
     </form>
   </body>
