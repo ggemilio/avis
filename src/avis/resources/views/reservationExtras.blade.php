@@ -15,7 +15,7 @@
       <br><br>
       @foreach($extras as $extra)
       <label>{{$extra->name}} - {{$extra->price}}</label>
-      <input type="checkbox" name=''>
+      <input type="checkbox" name='extras[]' value="{{$extra->id}}">
       <br><br>
       @endforeach
       <input type="submit" value="Procced to checkout">
