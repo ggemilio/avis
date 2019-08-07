@@ -31,10 +31,16 @@ class ReservationController extends Controller
       $pickup_date = $_COOKIE['pickup-date'];
       $dropoff_date = $_COOKIE['dropoff-date'];
       $extras_price = 0;
+      $airport_tax = 0;
       $category = \App\Category::find($_POST['category']);
 
       echo 'Category to rent: '.$category['category_name'].'<br>';
-      echo 'Extras: '.'<br>';
+      echo 'Base cost: '.$category['price'].'<br>';
+      if(1 == $pickup_location['is_airport'])
+      {
+        $airport_tax = $airport_tax * 0.15
+        echo 'Airport tax: '.$airport_tax;
+      }
       if(isset($_POST['extras']))
       {
         foreach ($_POST['extras'] as $extra) {
@@ -44,12 +50,7 @@ class ReservationController extends Controller
           echo '<br>';
         }
       }
-
-      echo 'Total extras: '.$extras_price;
-
-      if(1 == $pickup_location['is_airport'])
-      {
-        echo 'is airport';
-      }
+      $total = $category['price'] + $airport_tax + $extras_price;
+      echo 'Total: '.$total;
     }
 }
