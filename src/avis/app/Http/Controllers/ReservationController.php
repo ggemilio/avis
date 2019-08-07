@@ -17,11 +17,14 @@ class ReservationController extends Controller
     {
       $extras = \App\Extra::all();
       $categories = \App\Establishment::find($_POST['establishment-pickup'])->categories;
+      setcookie('pickup',$_POST['establishment-pickup'], time()+2*24*60*60);
+      setcookie('dropoff',$_POST['establishment-dropoff'], time()+2*24*60*60);
       return view('reservationExtras')->withCategories($categories)->withExtras($extras);
     }
 
     public function checkout()
     {
-      
+      echo $_COOKIE['pickup'];
+      echo $_COOKIE['dropoff'];
     }
 }
